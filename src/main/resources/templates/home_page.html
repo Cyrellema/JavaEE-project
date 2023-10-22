@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Base_Patrimoniale</title>
+        <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css" href="/css/styles.css" media="all"/>
+    </head>
+    <style>
+        h1 {
+    font-family: sans-serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: navy;
+    text-align: center;
+}
+
+body{
+    background-color: bisque;
+}
+p {
+    font-family: sans-serif;
+}
+input {
+    width: 100%;
+
+}
+h2{
+    font-family: sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: rgba(98, 9, 9, 0.651);
+    text-align: center;
+}
+
+    </style>
+    <body>
+        		<div class="container">
+      <h1>
+            La base patrimoniale
+    </h1> 
+        <nav>
+            <ul>
+       <li> <a href="index.html"  data-th-href="@{/}">retourner à l'accueil</a></li>
+       <li> <a href="monuments.html" data-th-href="@{/monuments}">les monuments</a></li>
+       <li> <a href="celebrites.html" data-th-href="@{/celebrites}">les celebrites</a></li>
+       <li> <a href="departements.html"  data-th-href="@{/departements}">les departements</a></li>
+       <li> <a href="lieux.html" data-th-href="@{/lieux}">les communes</a></li>
+        </ul>
+        </nav>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Departements</title>
+        <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css" href="/css/styles.css" media="all"/>
+    </head>
+    <style>
+        h1 {
+    font-family: sans-serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: navy;
+    text-align: center;
+}
+
+body{
+    background-color: bisque;
+}
+p {
+    font-family: sans-serif;
+}
+input {
+    width: 100%;
+
+}
+h2{
+    font-family: sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: rgba(98, 9, 9, 0.651);
+    text-align: center;
+}
+    </style>
+    <body>
+        		<div class="container">
+                    <nav>
+                        <ul>
+                   <li> <a href="index.html"  data-th-href="@{/}">retourner à l'accueil</a></li>
+                    </ul>
+                    </nav>
+                    
+                </hr>
+                <div>
+                    <h2>
+                        Ajoutez un nouveau département à la base
+                         </h2> 
+                         <form action="#" method="POST" th:action="@{/addDep}" th:object="${departement}" modelAttribute="departement">
+                             <input type="text" name="dep" placeholder="numéro de département">
+                             <input type="text" name="nomDep" placeholder="nom de Département">
+                             <input type="text" name="numReg" placeholder="numéro de Région">
+                             <input type="text" name="codeInsee" placeholder="code de chef lieu">
+                             <input type="submit" value="créez un nouveau département">
+                         </form>
+                     </div>
+                     <div>
+                        <h2>
+                            Modifiez un département de la base
+                        </h2> 
+                             <form action="#" th:method="PUT" th:action="@{/modifDep}" th:object="${departement}" modelAttribute="departement">
+                                <input type="text" name="dep" placeholder="numéro de département">
+                                <input type="text" name="nomDep" placeholder="nom de Département">
+                                <input type="text" name="numReg" placeholder="numéro de Région">
+                                <input type="text" name="codeInsee" placeholder="code de chef lieu">
+                                 <input type="submit" value="modifiez un département">
+                             </form>
+                         </div>
+                         <div>
+                            <h2>
+                                Supprimez un département de la base
+                            </h2> 
+                                 <form action="#" th:method="DELETE" th:action="@{/suprDep}" th:object="${departement}" modelAttribute="departement">
+                                     <input type="text" name="dep" placeholder="numéro de département">
+                                     <input type="submit" value="supprimez un département">
+                                 </form>
+                             </div>
+                     <div>
+                     <h2>
+                        Liste des départements de la base
+                         </h2> 
+            <table class="table table-bordered table-striped">
+			
+				<thead>
+					<tr>
+						<th>numéro du département</th>
+						<th>nom du département</th>
+						<th>numéro de région</th>
+                        <th>chef lieu</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr  th:each="departement : ${depart}">
+                     <td th:text="${departement.dep}">  </td>
+                        <td th:text="${departement.nomDep}">  </td>
+                        <td th:text="${departement.numReg}">  </td>
+                        <td th:text="${departement.codeInsee.getCodeInsee()}">  </td>
+					</tr>
+				</tbody>
+				
+			</table>
+    </div>
+</body>
+</html>

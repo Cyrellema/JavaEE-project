@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Communes</title>
+        <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css" href="/css/styles.css" media="all"/>
+    </head>
+    <style>
+        h1 {
+    font-family: sans-serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: navy;
+    text-align: center;
+}
+
+body{
+    background-color: bisque;
+}
+p {
+    font-family: sans-serif;
+}
+input {
+    width: 100%;
+
+}
+h2{
+    font-family: sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: rgba(98, 9, 9, 0.651);
+    text-align: center;
+}
+
+    </style>
+    <body>
+        		<div class="container">
+      <h1>
+       Les communes de la base
+        </h1> 
+        <nav>
+            <ul>
+       <li> <a href="index.html"  data-th-href="@{/}">retourner à l'accueil</a></li>
+        </ul>
+        </nav>
+    </hr>
+    <div>
+        <h2>
+            Ajoutez une nouvelle commune à la base
+             </h2> 
+             <form action="#" method="POST" th:action="@{/addCom}" th:object="${lieu}" modelAttribute="lieu">
+                 <input type="text" name="codeInsee" placeholder="code insee">
+                 <input type="text" name="nomCom" placeholder="nom de la commune">
+                 <input type="float" name="longitude" placeholder="longitude">
+                 <input type="float" name="latitude" placeholder="latitude">
+                 <input type="text" name="dep" placeholder="numéro de département">
+                 <input type="submit" value="créez une nouvelle commune">
+             </form>
+         </div>
+         <div>
+            <h2>
+                Modifiez une commune de la base
+            </h2> 
+                 <form action="#" th:method="PUT" th:action="@{/modifCom}" th:object="${lieu}" modelAttribute="lieu">
+                     <input type="text" name="codeInsee" placeholder="code insee">
+                     <input type="text" name="nomCom" placeholder="nom de la commune">
+                     <input type="float" name="longitude" placeholder="longitude">
+                     <input type="float" name="latitude" placeholder="latitude">
+                     <input type="text" name="dep" placeholder="numéro de département">
+                     <input type="submit" value="modifiez une commune">
+                 </form>
+             </div>
+             <div>
+                <h2>
+                    Supprimez une commune de la base
+                </h2> 
+                     <form action="#" th:method="DELETE" th:action="@{/suprCom}" th:object="${lieu}" modelAttribute="lieu">
+                         <input type="text" name="codeInsee" placeholder="code insee">
+                         <input type="submit" value="supprimez une commune">
+                     </form>
+                 </div>
+
+                <h2>
+                    Liste des communes de la base
+                </h2>
+            <table class="table table-bordered table-striped">
+			
+				<thead>
+					<tr>
+						<th>numéro</th>
+						<th>nom</th>
+						<th>longitude</th>
+                        <th>latitude</th>
+                        <th>departement</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr  th:each="lieu : ${lieus}">
+                     <td th:text="${lieu.codeInsee}">  </td>
+                        <td th:text="${lieu.nomCom}">  </td>
+                        <td th:text="${lieu.longitude}">  </td>
+                        <td th:text="${lieu.latitude}">  </td>
+                        <td th:text="${lieu.dep.getDep()}">  </td>
+
+					</tr>
+				</tbody>
+				
+			</table>
+    </div>
+</body>
+</html>

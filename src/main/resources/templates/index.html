@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Patrimoine Occitan de la région Occitanie</title>
+        <link th:href="@{/css/styles.css}" rel="stylesheet" type="text/css" href="/css/styles.css" media="all"/>
+    </head>
+    <style>
+        h1 {
+    font-family: sans-serif;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: navy;
+    text-align: center;
+}
+
+body{
+    background-color: bisque;
+}
+p {
+    font-family: sans-serif;
+}
+h2{
+    font-family: sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+    color: rgba(98, 9, 9, 0.651);
+}
+    </style>
+    <body>
+      <h1>
+        Patrimoine historique de la région Occitanie
+        </h1> 
+        <form action="/home" method="get">
+            <input type="text" id="login" name="login" placeholder="login">
+            <input type="submit" value="accèder à la base">
+        </form>
+        <a href="monu.html" data-th-href="@{/monu}">voir les monuments de la région</a>
+    </div>
+    <div>
+        <h2>
+                Rechercher un monument par son type 
+        </h2>
+        <form action="/typeM" method="get">
+            <input type="text" id="typeM" name="typeM" placeholder="type de monument recherché">
+            <input type="submit" value="voir la liste des monuments de ce type">
+        </form>
+            </div>
+            <div>
+                <h2>
+                    Rechercher une célébrité par sa nationalité
+                </h2>
+                <form action="/natio" method="get">
+                    <input type="text" id="nationalite" name="nationalite" placeholder="nationalité recherchée">
+                    <input type="submit" value="voir la liste des célébrités de cette nationalité">
+                </form>
+                    </div>
+        <div>
+                <h2>
+                    Rechercher les monuments d'une célébrité
+                </h2>
+                <form action="/monuCeleb" method="get">
+                    <input type="text" id="nom" name="nom" placeholder="célébrité recherchée">
+                    <input type="submit" value="voir la liste des monuments de cette célébrité">
+                </form>
+                    </div>
+    <div>
+        <h2>
+            Rechercher les monuments d'une commune
+        </h2>
+        <form action="/comm" method="get">
+            <input type="text" id="codeInsee" name="codeInsee" placeholder="code de la commune recherchée">
+            <input type="submit" value="voir les monuments dans cette commune">
+        </form>
+            </div>
+            <div>
+                <h2>
+                    Rechercher un département par son nom
+                </h2>
+                <form action="/nomDep" method="get">
+                    <input type="text" id="dep" name="dep" placeholder="nom du département">
+                    <input type="submit" value="voir le département">
+                </form>
+                    </div>
+    <div>
+        <div>
+            <h2>
+                Rechercher une commune par son nom
+            </h2>
+            <form action="/nomCom" method="get">
+                <input type="text" id="nomCom" name="nomCom" placeholder="commune recherchée">
+                <input type="submit" value="voir les informations de cette commune">
+            </form>
+                </div>
+                <div>
+                    <h2>
+                        Rechercher les communes d'un département
+                    </h2>
+                    <form action="/byDep" method="get">
+                        <input type="text" id="dep" name="dep" placeholder="département recherché">
+                        <input type="submit" value="voir la liste des communes de ce département">
+                    </form>
+                        </div>
+        <h2>
+            Rechercher les monuments d'une époque
+        </h2>
+        <form action="/epoq" method="get">
+            <input type="text" id="epoque" name="epoque" placeholder="époque recherchée">
+            <input type="submit" value="voir la liste des monuments de cette époque">
+        </form>
+            </div>
+    <div>
+        <h2>
+            Voir la distance entre un monument donné et les autres 
+        </h2>
+        <form action="/distant" method="get">
+            <input type="text" id="nom" name="nom" placeholder="nom du monument">
+            <input type="submit" value="voir la distance avec les autres monuments">
+        </form>
+            </div>
+            <div>
+                <h2>
+                    Voir la distance entre deux monuments indiqués 
+                </h2>
+                <form action="/distanceMon" method="get">
+                    <input type="text" id="nom1" name="nom1" placeholder="nom du monument">
+                    <input type="text" id="nom2" name="nom2" placeholder="nom du monument">
+                    <input type="submit" value="voir la distance avec les deux monuments">
+                </form>
+                    </div>
+    </body>
+</html>
